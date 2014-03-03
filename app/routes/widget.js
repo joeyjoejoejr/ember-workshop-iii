@@ -6,8 +6,11 @@ export default Ember.Route.extend({
   },
   actions: {
     deleteWidget: function(widget) {
-      this.modelFor("widgets").removeObject(widget);
-      this.transitionTo("widgets");
+      self = this;
+      widget.delete().then(function() {
+        self.modelFor("widgets").removeObject(widget);
+        self.transitionTo("widgets");
+      });
     }
   }
 });

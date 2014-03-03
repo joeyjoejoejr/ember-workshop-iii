@@ -25,6 +25,16 @@ var Widget = Ember.Object.extend({
         name: this.get("name")
       })
     });
+  },
+  delete: function() {
+    return ajax("https://api.parse.com/1/classes/Widget/" + this.get("objectId"), {
+      type: "DELETE",
+      contentType: "application/json",
+      headers: {
+         "X-Parse-Application-Id": "YECyeBU4LQ0kiCspsZJyhZ5ynHHvkRrlcD9hlYh6",
+         "X-Parse-REST-API-Key": "Rw0XkmKO8avoGMXgaGdsR3r8teYU0YXs7jUN5CFY"
+       },
+    });
   }
 });
 
