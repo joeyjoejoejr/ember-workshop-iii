@@ -1,16 +1,21 @@
 import ajax from "appkit/utils/ajax";
 var Widget = Ember.Object.extend({
-  //Widget route delete action
-  delete: function() {
-          },
-  //Widget/Edit route
-  update: function() {
-
-          }
+  save: function() {
+    return ajax("https://api.parse.com/1/classes/Widget/", {
+      type: "POST",
+      contentType: "application/json",
+      headers: {
+         "X-Parse-Application-Id": "YECyeBU4LQ0kiCspsZJyhZ5ynHHvkRrlcD9hlYh6",
+         "X-Parse-REST-API-Key": "Rw0XkmKO8avoGMXgaGdsR3r8teYU0YXs7jUN5CFY"
+       },
+      data: JSON.stringify({
+        name: this.get("name")
+      })
+    });
+  }
 });
 
 Widget.reopenClass({
-  //Widget route
   find: function(parse_id) {
     return ajax("https://api.parse.com/1/classes/Widget/" + parse_id, {
         headers: {
