@@ -6,7 +6,7 @@ export default Ember.Route.extend({
   },
   actions: {
     deleteWidget: function(widget) {
-      self = this;
+      var self = this;
       widget.delete().then(function() {
         self.modelFor("widgets").removeObject(widget);
         self.transitionTo("widgets");

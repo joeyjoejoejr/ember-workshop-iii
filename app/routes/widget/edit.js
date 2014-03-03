@@ -6,7 +6,7 @@ export default Ember.Route.extend({
   },
   actions: {
     formSubmitted: function(widget) {
-      self = this;
+      var self = this;
       widget.update().then(function() {
         self.transitionTo("widget");
       });
