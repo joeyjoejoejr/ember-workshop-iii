@@ -1,8 +1,8 @@
+import Widget from "appkit/models/widget";
+
 export default Ember.Route.extend({
   model: function(params) {
-    return this.modelFor("widgets").filter(function(widget) {
-      return(widget.get("id") === params.widget_id);
-    });
+    return Widget.find(params.widget_id)
   },
   actions: {
     deleteWidget: function(widget) {
