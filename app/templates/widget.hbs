@@ -1,0 +1,5 @@
+<h2>Widget {{id}}</h2>
+<strong>Name: </strong> {{name}}
+{{#link-to "widget.edit"}}Edit{{/link-to}}
+<button {{action "deleteWidget" this}}>Delete</button>
+{{outlet}}

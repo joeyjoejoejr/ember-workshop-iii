@@ -1,0 +1,10 @@
+<h2>Widgets</h2>
+<ul>
+  {{#each}}
+    <li>
+      Name: {{#link-to "widget" this}}{{name}}{{/link-to}}
+    </li>
+  {{/each}}
+</ul>
+{{#link-to "widgets.new"}}New Widget{{/link-to}}
+{{outlet}}
